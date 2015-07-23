@@ -1,4 +1,4 @@
-package com.bryndzak.bm;
+package com.bryndzak.bm.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
