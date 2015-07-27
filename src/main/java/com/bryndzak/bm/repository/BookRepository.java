@@ -13,7 +13,7 @@ import java.util.List;
 @Transactional//всі методи будуть виконуватися по трансакції
 public class BookRepository {
 
-    @Autowired//впроваджує залежності бінів в даний клас
+    @Autowired//автоматично впроваджує залежності бінів в даний клас
     private SessionFactory sessionFactory;//клас для роботи з hibernate
 
     public void addBook(Book book){

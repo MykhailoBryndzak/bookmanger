@@ -22,7 +22,7 @@ public class Book {
         return id;
     }
 
-    public void setiD(int id) {
+    public void setid(int id) {
         this.id = id;
     }
 
