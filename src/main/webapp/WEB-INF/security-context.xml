@@ -28,14 +28,14 @@
                      <security:password-encoder ref="encoder"/>
                      <security:user-service>
                             <security:user name = "user"
-                                           password = "user"
+                                           password = "u"
                                            authorities="user"/>
                             <security:user name="admin"
-                                           password ="admin"
+                                           password ="a"
                                            authorities="admin"/>
                      </security:user-service>
 
-
+`
               </security:authentication-provider>
        </security:authentication-manager>
 
