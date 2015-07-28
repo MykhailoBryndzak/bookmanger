@@ -1,28 +1,30 @@
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Book Manager</title>
-</head>
-<body>
-  <div>
-    <h1>Book Manager</h1>
-    <%--якщо модель books  не пусте , тоді створбється таблиця--%>
-    <c:if test="$(!emty books}">
-      <table>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<t:template>
+  <c:if test = "${!empty books}">
+    <table class ="book-list-table">
+      <tr>
+          <%--хедери--%>
+        <th>Name</th>
+        <th>Genre</th>
+          <th>&nbsp;</th>
+
+      </tr>
+      <c:forEach items = "${books}" var = "book">
         <tr>
-          <th>Name</th>
-          <th>Genre</th>
+            <%--колонки--%>
+          <td>${book.name}</td>
+          <td>${book.genre}</td>
+            <td><a href="javascript:BookUtil.deleteBook(${book.id})">Delete</a></td>
+
         </tr>
-        <%--за допомогою форіч створюємо книгу в кожному рядку--%>
-          <c:forEach items="${books}" var="book">
-            <tr>
-              <td>${book.name}</td>
-              <td>${book.genre}</td>
-            </tr>
-          </c:forEach>
-      </table>
-    </c:if>
-  </div>
-</body>
-</html>
+      </c:forEach>
+    </table>
+  </c:if>
+    <a href="addBook">Add Book</a>
+
+
+</t:template>
+

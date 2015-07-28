@@ -5,8 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
        <context:property-placeholder location="classpath:jdbc.properties" system-properties-mode="ENVIRONMENT"/><!--підключаємо   плейсхолдер за допомогою контекс-препертіс-->
-      <!--бін репозиторія буде доступний в аплікейшн-конттекс-->
-       <context:component-scan base-package="com.bryndzak.bm.repository,com.bryndzak.bm.controller"/>
+      <!-- в component-scan пропискємо ті пекеджі в яких є анотація     @Контроллер, для того щоб спрінг міг знайти і заавтоватирити біни класу -->
+       <context:component-scan base-package="com.bryndzak.bm.repository,com.bryndzak.bm.controller,
+       com.bryndzak.bm.validation"/>
 
        <tx:annotation-driven transaction-manager="transactionManager" /><!-- анотація включає транзакції-->
 <!--бін який строворю трансекшн менеджер-->
