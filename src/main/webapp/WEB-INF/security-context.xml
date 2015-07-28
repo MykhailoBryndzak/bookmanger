@@ -27,12 +27,11 @@
               <security:authentication-provider>
                      <security:password-encoder ref="encoder"/>
                      <security:user-service>
-                            <!-- Password "koala" for both -->
                             <security:user name = "user"
-                                           password = "4efe081594ce25ee4efd9f7067f7f678a347bccf2de201f3adf2a3eb544850b465b4e51cdc3fcdde"
+                                           password = "user"
                                            authorities="user"/>
                             <security:user name="admin"
-                                           password ="4efe081594ce25ee4efd9f7067f7f678a347bccf2de201f3adf2a3eb544850b465b4e51cdc3fcdde"
+                                           password ="admin"
                                            authorities="admin"/>
                      </security:user-service>
 

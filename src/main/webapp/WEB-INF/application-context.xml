@@ -9,6 +9,8 @@
        <context:component-scan base-package="com.bryndzak.bm.repository,com.bryndzak.bm.controller,
        com.bryndzak.bm.validation"/>
 
+       <import resource="security-context.xml" />
+
        <tx:annotation-driven transaction-manager="transactionManager" /><!-- анотація включає транзакції-->
 <!--бін який строворю трансекшн менеджер-->
        <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

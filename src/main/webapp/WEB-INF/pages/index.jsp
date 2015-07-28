@@ -9,7 +9,9 @@
           <%--хедери--%>
         <th>Name</th>
         <th>Genre</th>
+        <sec:authorize access="hasRole('admin')">
           <th>&nbsp;</th>
+        </sec:authorize>
 
       </tr>
       <c:forEach items = "${books}" var = "book">
@@ -17,14 +19,17 @@
             <%--колонки--%>
           <td>${book.name}</td>
           <td>${book.genre}</td>
+          <sec:authorize access="hasRole('admin')">
             <td><a href="javascript:BookUtil.deleteBook(${book.id})">Delete</a></td>
+          </sec:authorize>
 
         </tr>
       </c:forEach>
     </table>
   </c:if>
+  <sec:authorize access="isAuthenticated()">
     <a href="addBook">Add Book</a>
-
+  </sec:authorize>
 
 </t:template>
 

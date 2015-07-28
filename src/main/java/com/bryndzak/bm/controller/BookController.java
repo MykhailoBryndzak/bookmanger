@@ -39,6 +39,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "addBook", method = RequestMethod.GET)
+    @PreAuthorize("isAuthenticated()")
     public String addBook(Model model) {
         model.addAttribute("book",new Book());
 
@@ -46,6 +47,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "addBook", method = RequestMethod.POST)
+    @PreAuthorize("isAuthenticated()")
     public String addBook(@ModelAttribute("book") Book book ,BindingResult bindingResult){//додоаємо нову книгу в БД///bindingResult-зберігає помилки валідації
         this.bookValidator.validate(book, bindingResult);
 
@@ -58,6 +60,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "deleteBook/{id}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('admin')")
     public String deleteBook(@PathVariable Integer id){//PathVariable - вказує що ід є частиною url
         this.bookRepository.removeBook(id);
 
